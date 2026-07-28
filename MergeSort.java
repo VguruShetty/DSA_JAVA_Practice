@@ -14,32 +14,14 @@ public class MergeSort{
             return arr;
         }
         int mid = arr.length / 2;
-        int[] LeftArr = Arrays.copyOfRange(arr, 0, mid);
-        System.out.print("Left array : ");
-        for(int l : LeftArr){
-            System.out.print(l + " ");
-        }
-        int[] rightArr = Arrays.copyOfRange(arr, mid, arr.length);
-         System.out.print("Left array : ");
-        for(int l : rightArr){
-            System.out.print(l + " ");
-        }
+        int[] LeftArr = Arrays.copyOfRange(arr, 0, mid);        
+        int[] rightArr = Arrays.copyOfRange(arr, mid, arr.length);        
         int[] sortedLeft = MergeSorting(LeftArr);
         int[] sortedRight = MergeSorting(rightArr);
         return merge(sortedLeft, sortedRight);
      }
      public static int[] merge(int[] leftArr, int[] rightArr){
-        int[] result = new int[leftArr.length + rightArr.length];
-        System.out.print("Left array : ");
-        for(int l : leftArr){
-            System.out.print(l + " ");
-        }
-        System.out.println();
-        System.out.print("Right array : ");
-        for(int r : leftArr){
-            System.out.print(r + " ");
-        }
-        System.out.println();
+        int[] result = new int[leftArr.length + rightArr.length];        
         int i=0, j=0, k=0;
         while(i < leftArr.length && j < rightArr.length){
             if(leftArr[i] < rightArr[j]){
@@ -49,11 +31,23 @@ public class MergeSort{
                 result[k++] = rightArr[j++];
             }
         }
+        System.out.print("1st loop array : ");
+        for(int l : result){
+            System.out.print(l + " ");
+        }
         while(i < leftArr.length){
             result[k++] = leftArr[i++];
         }
+        System.out.print("2nd loop array : ");
+        for(int l : result){
+            System.out.print(l + " ");
+        }
         while(j < rightArr.length){
             result[k++] = rightArr[j++];
+        }
+        System.out.print("3rd loop array : ");
+        for(int l : result){
+            System.out.print(l + " ");
         }
         return result;
      }
